@@ -1,0 +1,28 @@
+<body>
+
+    <div id="iframe-container">
+    </div>
+
+    <script>
+        (async () => {
+
+            const sleep = msec => new Promise(resolve => setTimeout(resolve, msec));
+
+            for (index in [...Array(100).keys()]) {
+                var myImage = new Image(100, 100);
+                myImage.src = `https://thispersondoesnotexist.com/image?${index}`;
+                /* dfd */
+                // const iframe = document.createElement('iframe');
+                // iframe.setAttribute("src", `https://thispersondoesnotexist.com/?${index}`);
+                // iframe.setAttribute("height", "300");
+                // iframe.setAttribute("width", "300");
+                // // iframe.setAttribute("loading", "lazy");
+
+                // document.getElementById('iframe-container').appendChild(iframe);
+                document.getElementById('iframe-container').appendChild(myImage);
+
+                await sleep(2000);
+            }
+        })()
+    </script>
+</body>
